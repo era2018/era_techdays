@@ -9,17 +9,17 @@ $(document).ready(function() {
 				document.getElementById('data').innerHTML = "Betty Off Road";
 			}
 		    else if(data.eventCode == 2){
-				document.getElementById('data').innerHTML = "Betty in trafic jam";
+				document.getElementById('data').innerHTML = "Betty in traffic jam";
 			}
 			else if(data.eventCode== 3){
 				document.getElementById('data').innerHTML = "Betty in fender bender";
 			}
 			else if(data.eventCode == 4){
-				document.getElementById('data').innerHTML = "pick up";
+				document.getElementById('data').innerHTML = "Lane Departure";
 					
 			}
 			else{
-				document.getElementById('data').innerHTML = "drop off";
+				document.getElementById('data').innerHTML = "ride share";
 			}
 			
 	
