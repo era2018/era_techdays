@@ -1,23 +1,33 @@
+function control(){
+$(document).ready(function() {
+		$.ajax({
+			url: "http://localhost:8080/event"
+		}).then(function(data) {
+			console.log(data.event);
+			if(data.event == 1){
+				document.getElementById('data').innerHTML = "Betty Of Road"
+				for(var x = 0; x < 10000; x++){}
+			}
+		    else if(data.event == 2){
+				document.getElementById('data').innerHTML = "Betty in trafic jam"
+			}
+			else if(data.event== 3){
+				document.getElementById('data').innerHTML = "Betty in fender bender"
+			}
+			else if(data.event == 4){
+				document.getElementById('data').innerHTML = "pick up"
+					
+			}
+			else{
+				document.getElementById('data').innerHTML = "drop off"
+			}
+			
+	
+		});
+    
+});
 
-var alerts = {};
+setTimeout(control, 3000);
 
-alerts[0] = "";
-alerts[1] = "Betty off road";
-alerts[2] = "Betty in traffic jam";
-alerts[3] = "Betty in fender bender";
-alerts[4] = "Pick up";
-alerts[5] = "Drop off";
-
-function display(data)
-{
-		console.log(data.eventCode);
-		document.getElementById('data').innerHTML = alerts[data.eventCode];
 }
-
-function poll()
-{
-	$.get("http://localhost:8080/event", display);
-	setTimeout(poll, 1000);
-}
-
-$(document).ready(poll);
+control();
