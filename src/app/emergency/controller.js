@@ -14,12 +14,9 @@ $(document).ready(function() {
 			else if(data.eventCode== 3){
 				document.getElementById('data').innerHTML = "Betty in fender bender";
 			}
-			else if(data.eventCode == 4){
+			else{
 				document.getElementById('data').innerHTML = "Lane Departure";
 					
-			}
-			else{
-				document.getElementById('data').innerHTML = "ride share";
 			}
 			
 	
