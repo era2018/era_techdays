@@ -9,13 +9,19 @@
         <div id="container" class="container">
             <img src="../CarLogo.png" id="logo">
             <br>SuperCar Login<br><br>
-            <form action="wherever to send form" target="_blank">
+            <form action="testFile.php" target="_blank" onsubmit="return UserPass()" method="post">
                 Email Address:<br>
                     <input type="email" name="email" id="email"><br><br>
                 Password:<br>
-                    <input type="password" name="pass" id="pass"><br><br>
-            <input type="submit" value="submit" id="submit">
-            </form>
+                    <input type="text" name="pass" id="pass"><br><br>
+                <input type="submit" value="submit" id="submit" formenctype="text/plain">
+            </form> <!-- Execute a JavaScript when a form is submitted -->
+            <script>
+                function UserPass() {
+                    var uName = document.getElementById("email").value.indexOf("@");
+                    var pWord = document.getElementById("pass").value;
+                }
+            </script>
             <div id="clear"></div>
         </div>
     </body>
