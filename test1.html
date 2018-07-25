@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Route</title>
+    <style>
+      #right-panel {
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+      }
+
+      #right-panel select, #right-panel input {
+        font-size: 15px;
+      }
+
+      #right-panel select {
+        width: 100%;
+      }
+
+      #right-panel i {
+        font-size: 12px;
+      }
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+        float: left;
+        width: 70%;
+        height: 100%;
+      }
+      #right-panel {
+        margin: 20px;
+        border-width: 2px;
+        width: 20%;
+        height: 400px;
+        float: left;
+        text-align: left;
+        padding-top: 0;
+      }
+      #directions-panel {
+        margin-top: 10px;
+        background-color: #FFEE77;
+        padding: 10px;
+        overflow: scroll;
+        height: 174px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <div id="right-panel">
+    <div>
+    <b>Start:</b>
+    <select id="start">
+      <option value="San Francisco, CA">San Francisco, CA</option>
+    </select>
+    <br>
+    <b>Waypoints:</b> <br>
+    <i>(Ctrl+Click or Cmd+Click for multiple selection)</i> <br>
+    <select multiple id="waypoints">
+      <option value="Livermore, CA">Livermore, CA</option>
+      <option value="Los Angeles, CA">Los Angeles, CA</option>
+      <option value="Santa Clarita, CA">Santa Clarita, CA</option>
+      <option value="Los Banos">Los Banos, CA</option>
+      <option value="San Diego">San Diego, CA</option>
+    </select>
+    <br>
+    <b>End:</b>
+    <select id="end">
+      <option value="Los Angeles, CA">Los Angeles, CA</option>
+    </select>
+    <br>
+<!-- 
+    <tr>
+    <td colspan="2">
+        Source:
+        <input type="text" id="txtSource" style="width: 200px" />
+        &nbsp; Destination:
+        <input type="text" id="txtDestination" style="width: 200px" />
+        <br />
+        <input type="button" value="Get Route" onclick="GetRoute()" />
+        <hr />
+    </td>
+</tr> -->
+      <input type="submit" id="submit" onclick="alert('Betty will be riding with\nNancy\nPaul');">
+    </div>
+    <div id="directions-panel"></div>
+    </div>
+    <script>
+      function initMap() {
+        var directionsService = new google.maps.DirectionsService;
+        var directionsDisplay = new google.maps.DirectionsRenderer;
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 6,
+          center: {lat: 37.47, lng: -122.65}
+        });
+        directionsDisplay.setMap(map);
+
+        document.getElementById('submit').addEventListener('click', function() {
+          calculateAndDisplayRoute(directionsService, directionsDisplay);
+        });
+      }
+
+      function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+        var waypts = [];
+        var checkboxArray = document.getElementById('waypoints');
+        for (var i = 0; i < checkboxArray.length; i++) {
+          if (checkboxArray.options[i].selected) {
+            waypts.push({
+              location: checkboxArray[i].value,
+              stopover: true
+            });
+          }
+        }
+
+        directionsService.route({
+          origin: document.getElementById('start').value,
+          destination: document.getElementById('end').value,
+          waypoints: waypts,
+          optimizeWaypoints: true,
+          travelMode: 'DRIVING'
+        }, function(response, status) {
+          if (status === 'OK') {
+            directionsDisplay.setDirections(response);
+            var route = response.routes[0];
+            var summaryPanel = document.getElementById('directions-panel');
+            summaryPanel.innerHTML = '';
+            // For each route, display summary information.
+            for (var i = 0; i < route.legs.length; i++) {
+              var routeSegment = i + 1;
+              summaryPanel.innerHTML += '<b>Route Segment: ' + routeSegment +
+                  '</b><br>';
+              summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
+              summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
+              summaryPanel.innerHTML += route.legs[i].distance.text + '<br><br>';
+            }
+          } else {
+            window.alert('Directions request failed due to ' + status);
+          }
+        });
+      }
+
+
+
+// https://maps.googleapis.com/maps/api/directions/json?origin=San Francisco, CA&destination=San Diego, CA&waypoints=Livermore, CA|Los Banos, CA|Santa Clarita, CA|Los Angeles, CA
+
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCc7CDZ-NA3IGEnqUeM-uW00mY3pUM86bU&callback=initMap">
+    </script>
+       <script async defer
+    src="https://maps.googleapis.com/maps/api/directions/json?origin=San Francisco, CA&destination=San Diego, CA&waypoints=Livermore, CA|Los Banos, CA|Santa Clarita, CA|Los Angeles, CA">
+    </script>
+  </body>
+</html>
