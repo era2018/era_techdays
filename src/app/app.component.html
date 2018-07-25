@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="./styles.css">
+    <script>
+        function openNav() {
+            document.getElementById("sideMenu").style.width = "240px";
+        }
+
+        function closeNav() {
+            document.getElementById("sideMenu").style.width = "0";
+        }
+    </script> 
+    <head>
+        <title>SuperCar Co.Menu</title>
+    </head>
+    <body>
+        <div id="header"></div>
+        <div id="sideMenu" class="menu">
+            <a href="javascript:void(0)" class="closeM" onclick="closeNav()">&times;</a>
+            <a href="../app.component.html">HOME</a>
+            <a href="../info/info.component.html">INFORMATION</a>
+            <a href="../graphs/graphs.component.html">GRAPHS</a>
+            <a href="../pdf/pdf.component.html">PDF</a>
+        </div>
+        <span style="font-size:30px; cursor:pointer" onclick="openNav()">
+                <img src="./CarLogo.png" alt="SuperCar Logo" id="logo"></span>
+    </body>
+</html>

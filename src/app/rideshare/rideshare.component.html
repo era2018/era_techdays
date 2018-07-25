@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="./rideshare.component.css"> 
+    <head>
+        <title>SuperCar Co.RideShare_Form</title>
+    </head>
+    <body>
+        <div id="header"></div>
+        <div id="header2"></div>
+        <div id="container">
+            <h1>RideShare Information</h1>
+            <img src="../CarLogo.png" alt="SuperCar Logo">
+            <br><br>
+            
+            <form action="http://localhost:8080/event" target="_blank" method="post">
+                Full Name:<br>
+                    <input type="text" name="name" id="name"><br><br>
+                Age:<br>
+                    <input type="text" name="age" id="age"><br><br>
+                Date:<br>
+                    <input type="date" name="date" id="date"><br><br>
+                Time:<br>
+                    <input type="time" name="time" id="time"><br><br>
+                Pick up information:<br>
+                <blockquote>Address<br>
+                    <input type="text" name="address" id="address"><br>
+                City<br>
+                    <input type="text" name="city" id="city"><br>
+                State<br>
+                    <input type="text" name="state" id="state"><br>
+                ZIP<br>
+                    <input type="text" name="zip" id="zip"><br><br>
+                </blockquote>
+                Drop off information:<br>
+                <blockquote>Address<br>
+                    <input type="text" name="address2" id="address2"><br>
+                City<br>
+                    <input type="text" name="city2" id="city2"><br>
+                State<br>
+                    <input type="text" name="state2" id="state2"><br>
+                ZIP<br>
+                    <input type="text" name="zip2" id="zip2"><br><br>
+                </blockquote>
+                Preferences:
+                <blockquote>
+                Age of riders:<br><br>
+                    <input type="checkbox" name="none" id="agepref" value="none">
+                    <label for="none">No Preference</label>
+                    <input type="checkbox" name="yes" id="agepref" value="yes">
+                    <label for="yes">Around the same age</label><br><br>
+                </blockquote>
+            <input type="submit" value="submit">
+            </form>
+            <!--<script>
+            <?php
+                //Connecting to sql db.
+                $connect = mysqli_connect("my host","my user","my passwrod","my db");
+                //Sending form data to sql db.
+                mysqli_query($connect,"INSERT INTO posts (category, title, contents, tags)
+                VALUES ('$_POST[post_category]', '$_POST[post_title]', '$_POST[post_contents]', '$_POST[post_tags]')";
+            ?>
+            </script>-->
+            <div id="clear"></div>
+        </div>
+    </body>
+</html>

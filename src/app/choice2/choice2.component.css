@@ -1,0 +1,80 @@
+/* everywhere else */
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #141414;
+    -webkit-font-smoothing: antialiased;
+    border-width: medium;
+    border-color: #3DB383;
+    justify-content: center;
+}
+
+button.css3button {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 50px;
+	color: #f1f1f1;
+	padding: 10px 20px;
+	background: -moz-linear-gradient(
+		top,
+		#36c982 0%,
+		#014141);
+	background: -webkit-gradient(
+		linear, left top, left bottom,
+		from(#36c982),
+		to(#014141));
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	border-radius: 0px;
+	border: 1px solid #141414;
+	-moz-box-shadow:
+		0px 1px 3px rgba(20,20,20,0.5),
+		inset 0px 0px 2px rgba(241,241,241,0.7);
+	-webkit-box-shadow:
+		0px 1px 3px rgba(20,20,20,0.5),
+		inset 0px 0px 2px rgba(241,241,241,0.7);
+	box-shadow:
+		0px 1px 3px rgba(20,20,20,0.5),
+		inset 0px 0px 2px rgba(241,241,241,0.7);
+	text-shadow:
+		0px -1px 0px rgba(20,20,20,0.4),
+		0px 1px 0px rgba(241,241,241,0.3);
+}
+
+#header {
+    width: 100%;
+    background-color: #3DB383;
+    height: 40px;
+}
+
+#container {
+    width: 100%;
+    margin: auto;
+    padding: inherit;
+}
+#first {
+    width: 200px;
+    float: left;
+    height: 200px;
+    padding: 50px;
+    margin: 10% 0% 20px 20%;
+    text-align: center;
+    border-radius: 50px; 
+    align-content: center;
+}
+#second {
+    width: 200px;
+    float: right;
+    height: 200px;
+    padding: 50px;
+    margin: 10% 20% 20px 0%;
+    text-align: center;
+    border-radius: 50px;
+    align-content: center;
+}
+a {
+    background-color: inherit;
+    color: inherit;
+    text-decoration: none;
+    all: none;
+    text-transform: uppercase;
+    text-align: center;
+}

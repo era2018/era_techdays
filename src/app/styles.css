@@ -1,0 +1,63 @@
+/* everywhere else */
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #141414;
+    -webkit-font-smoothing: antialiased;
+    border-width: medium;
+    border-color: #3DB383;
+}
+
+.menu {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #3DB383;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.menu a {
+    padding: 8px 8px 8px 28px;
+    text-decoration: none;
+    font-size: 24px;
+    color: #141414;
+    background-color: #3DB383;
+    display: block;
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    color: #f1f1f1;
+}
+
+.menu .closeM {
+    position: absolute;
+    top: 0;
+    right: 16px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+    .menu {padding-top: 15px;}
+    .menu a {font-size: 18px;}
+}
+
+.p {
+    align-content: center;
+    display: inline-block;
+}
+
+#header {
+    width: 100%;
+    background-color: #3db383;
+    height: 56px;
+}
+
+#logo {
+    width: 7%;
+}

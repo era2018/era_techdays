@@ -1,0 +1,43 @@
+/* everywhere else */
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #141414;
+    -webkit-font-smoothing: antialiased;
+    border-width: medium;
+    border-color: #3DB383;
+    justify-content: center;
+}
+
+#header {
+    width: 100%;
+    background-color: #3DB383;
+    height: 56px;
+}
+
+#header2 {
+    width: 100%;
+    background-color: #141414;
+    height: 56px;
+}
+
+#container {
+    width: 100%;
+    margin: auto;
+    padding: inherit;
+    color: #F1f1f1;
+}
+
+form {
+    color: #f1f1f1;
+}
+
+form input{
+    color: #F1f1f1;
+}
+
+#agepref {
+    background-color: #141414;
+}
+img {
+    width: 7%;
+}

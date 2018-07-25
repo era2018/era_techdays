@@ -1,0 +1,24 @@
+/* everywhere else */
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #141414;
+    -webkit-font-smoothing: antialiased;
+    border-width: medium;
+    border-color: #3DB383;
+    color: #f1f1f1;
+}
+
+.p {
+    align-content: center;
+    display: inline-block;
+}
+
+#header {
+    width: 100%;
+    background-color: #3db383;
+    height: 56px;
+}
+
+img {
+    width: 7%;
+}
