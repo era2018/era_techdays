@@ -45,7 +45,7 @@ $(document).ready(function() {
 			url: "http://localhost:8080/event"
 		}).then(display);
 	});
-	setTimeout(control, 3000);
+	setTimeout(control, 500);
 }
 
 control();
