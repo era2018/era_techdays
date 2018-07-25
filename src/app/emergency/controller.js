@@ -1,30 +1,49 @@
+
+var lastEvent = 0;
+var list = "";
+
+function display(data)
+{ 
+	if( data.eventCode != lastEvent)
+	{
+		lastEvent = data.eventCode;
+		
+		str = "";
+		
+		var d = new Date();
+		console.log(+d.getFullYear()+" "+(d.getMonth()+1)+" "+d.getHours()+" "+d.getMinutes)
+		if(data.eventCode == 1){
+			str = "Betty Off Road  ";
+		}
+		else if(data.eventCode == 2){
+			str = "Betty in traffic jam  ";
+		}
+		else if(data.eventCode== 3){
+			str = "Betty in fender bender  ";
+		}
+		else{
+			str = "Lane Departure  ";
+				
+		}
+		
+		str = str + d.getFullYear()+":"+(d.getMonth()+1)+":"+d.getHours()+":"+d.getMinutes() +"</br>"
+		
+		list = str + list;
+		
+		document.getElementById('data').innerHTML = list
+	}
+	
+	console.log(data);
+	console.log(data.eventCode)
+}
+	
+
+
 function control(){
 $(document).ready(function() {
 		$.ajax({
 			url: "http://localhost:8080/event"
-		}).then(function(data){ 
-			console.log(data);
-			console.log(data.eventCode)
-			var d = new Date();
-			console.log(+d.getFullYear()+" "+(d.getMonth()+1)+" "+d.getHours()+" "+d.getMinutes)
-			if(data.eventCode == 1){
-				document.getElementById('data').innerHTML = "Betty Off Road  "+d.getFullYear()+":"+(d.getMonth()+1)+":"+d.getHours()+":"+d.getMinutes();
-			}
-		    else if(data.eventCode == 2){
-				document.getElementById('data').innerHTML = "Betty in traffic jam  "+d.getFullYear()+":"+(d.getMonth()+1)+":"+d.getHours()+":"+d.getMinutes();
-			}
-			else if(data.eventCode== 3){
-				document.getElementById('data').innerHTML = "Betty in fender bender  "+d.getFullYear()+":"+(d.getMonth()+1)+":"+d.getHours()+":"+d.getMinutes();
-			}
-			else{
-				document.getElementById('data').innerHTML = "Lane Departure  "+d.getFullYear()+":"+(d.getMonth()+1)+":"+d.getHours()+":"+d.getMinutes();
-					
-			}
-			
-	
-		});
-
-
+		}).then(display);
 	});
 	setTimeout(control, 3000);
 }
