@@ -6,7 +6,6 @@ $(document).ready(function() {
 			console.log(data.event);
 			if(data.event == 1){
 				document.getElementById('data').innerHTML = "Betty Of Road"
-				for(var x = 0; x < 10000; x++){}
 			}
 		    else if(data.event == 2){
 				document.getElementById('data').innerHTML = "Betty in trafic jam"
