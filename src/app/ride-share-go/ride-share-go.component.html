@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <script>
+        function control(){
+            var counter = 0;
+            var counter2 = 0;
+            $(document).ready(function() {
+                    $.ajax({
+                        url: "http://localhost:8080/event"
+                    }).then(function(data) {
+                        console.log(data.event);
+                        if(data.event == 4 && counter == 0){
+                            document.getElementById('data').innerHTML = "Betty got picked up";
+                            counter++;
+                        }
+                        else if (data.event == 5 && counter2 == 0) {
+                            document.getElementById('data').innerHTML = "All passengers have been picked up";
+                            counter2++;
+                        }
+                        else if(data.event == 4 && counter == 1){
+                            document.getElementById('data').innerHTML = "Entering Deadzone";
+                            counter++;
+                        }
+                        else if(data.event == 5 && counter2 == 1){
+                            document.getElementById('data').innerHTML = "Exiting Deadzone";
+                            counter2++;
+                        }
+                        else if(data.event== 5 && counter2 == 2){
+                            document.getElementById('data').innerHTML = "Betty got dropped off";
+                        }
+                    });
+            });
+            setTimeout(control, 3000);
+        }
+        control();
+    </script>
+    <link rel="stylesheet" href="./ride-share-go.component.css"> 
+    <head>
+        <title>SuperCar Co.RideShare Alerts</title>
+    </head>
+    <body>
+        <div id="header"></div>
+        <div id="header2"></div>
+        <div id="container" class="container">
+            <img src="../CarLogo.png" id="logo">
+            <br><h1>SuperCar Alert Page</h1><br><br>
+            Cell Contact: Phone number here<br>
+            Emergency Contact: 911<br><br>
+            Suggested Actions:<br>
+            ...<br>
+            <div id="clear"></div>
+        </div>
+    </body>
+</html>
