@@ -27,7 +27,7 @@ $(document).ready(function() {
 
 
 	});
-	setTimeout(control(i++), 30000);
+	setTimeout(control(i++), 5000);
 }
 
 control();
