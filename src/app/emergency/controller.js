@@ -1,6 +1,11 @@
 
 var lastEvent = 0;
 var list = "";
+var alerts = {};
+
+alerts[1] = "Betty Off Road  ";
+alerts[2] = "Betty in traffic jam  ";
+alerts[3] = "Betty in fender bender  ";
 
 function display(data)
 { 
@@ -8,29 +13,15 @@ function display(data)
 	{
 		lastEvent = data.eventCode;
 		
-		str = "";
-		
-		var d = new Date();
-		console.log(+d.getFullYear()+" "+(d.getMonth()+1)+" "+d.getHours()+" "+d.getMinutes)
-		if(data.eventCode == 1){
-			str = "Betty Off Road  ";
-		}
-		else if(data.eventCode == 2){
-			str = "Betty in traffic jam  ";
-		}
-		else if(data.eventCode== 3){
-			str = "Betty in fender bender  ";
-		}
-		else{
-			str = "Lane Departure  ";
-				
-		}
-		
-		str = str + d.getFullYear()+":"+(d.getMonth()+1)+":"+d.getHours()+":"+d.getMinutes() +"</br>"
-		
-		list = str + list;
-		
-		document.getElementById('data').innerHTML = list
+		if( data.eventCode >= 1 && data.eventCode <= 3 )
+		{
+			var date = new Date();
+			str = alerts[data.eventCode] + date.toLocaleString() + "</br>";
+			//date.getFullYear()+"-"+(date.getMonth()+1)+" "+date.getHours()+":"+date.getMinutes() +"</br>";
+			
+			list = str + list;
+			document.getElementById('data').innerHTML = list
+		}		
 	}
 	
 	console.log(data);
