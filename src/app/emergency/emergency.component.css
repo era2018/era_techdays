@@ -7,7 +7,6 @@
     border-color: #3DB383;
     justify-content: center;
 }
-
 #header {
     width: 100%;
     background-color: #3db383;
@@ -18,7 +17,6 @@
     background-color: #141414;
     height: 56px;
 }
-
 #container {
     width: 100%;
     text-align-last: center;
@@ -30,25 +28,22 @@
 #logo {
     resize: 10%;
 }
-
-form {
-    color: #f1f1f1;
-    text-align: center;
-}
-form input{
-    color: #F1f1f1;
-}
-
-#submit {
-    color: #F1f1f1;
-}
-
 .container img {
     width: 10%;
     height: auto;
     align-items: center;
 }
 #imgStyle {
-    width: 100%;
-    
+    width: 100%; 
+}
+#window {
+    width: auto;
+    max-height: 400px;
+}
+.scriptStyle {
+    width: auto;
+    max-height: 100%;
+}
+p .id {
+    font-size: 200%;
 }
