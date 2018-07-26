@@ -1,19 +1,20 @@
-function control(){
+var x = 0;
+function control(i){
 $(document).ready(function() {
 		$.ajax({
 			url: "http://localhost:8080/event"
 		}).then(function(data){ 
 			console.log(data);
-			console.log(data.eventCode)
+			
 			var d = new Date();
-			console.log(+d.getFullYear()+" "+(d.getMonth()+1)+" "+d.getHours()+" "+d.getMinutes)
-			if(data.eventCode == 1){
-				document.getElementById('data').innerHTML = "Betty Off Road  "+d.getFullYear()+":"+(d.getMonth()+1)+":"+d.getHours()+":"+d.getMinutes();
+			
+			if(data[i] == 1){
+				document.getElementById('data').innerHTML = "Betty Off Road  "+d.getFullYear()+":"+(d.getMonth()+1)+":"+d.getHours()+":"+d.getMinutes();	
 			}
-		    else if(data.eventCode == 2){
+			else if(data[i] == 2){
 				document.getElementById('data').innerHTML = "Betty in traffic jam  "+d.getFullYear()+":"+(d.getMonth()+1)+":"+d.getHours()+":"+d.getMinutes();
 			}
-			else if(data.eventCode== 3){
+			else if(data[i] == 3){
 				document.getElementById('data').innerHTML = "Betty in fender bender  "+d.getFullYear()+":"+(d.getMonth()+1)+":"+d.getHours()+":"+d.getMinutes();
 			}
 			else{
@@ -26,7 +27,7 @@ $(document).ready(function() {
 
 
 	});
-	setTimeout(control, 5000);
+	setTimeout(control(i++), 30000);
 }
 
 control();
