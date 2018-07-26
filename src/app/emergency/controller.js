@@ -13,7 +13,7 @@ function display(data)
 	{
 		lastEvent = data.eventCode;
 		
-		if( data.eventCode >= 1 && data.eventCode <= 4 )
+		if( data.eventCode >= 1 && data.eventCode <= 3 )
 		{
 			var date = new Date();
 			str = alerts[data.eventCode] + date.toLocaleString() + "</br>";
