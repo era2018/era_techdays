@@ -10,26 +10,7 @@ public class User {
 
 	String userName;
 	String passWord;
-	/*	
-	public User(String UN, String PW)
-	{
-		userName = UN;
-		passWord = PW;
-	}
 	
-	public void compare()
-	{
-		if(userName == "laura@gmail.com" && passWord == "betty")
-		{
-			System.out.println("Confirmed");
-		}
-		
-		else
-		{
-			System.out.println("Login Failed");
-		}
-	}
-	*/
 	public static void main(String args[])
 	{
 				
@@ -52,37 +33,7 @@ public class User {
 			e.printStackTrace();
 		}
 		
-		//User xyz = new User("laura@gmail.com", "betty");
-		  
-		//xyz.compare();
-		/*
-		try {
-            Properties props = new Properties();
-            props.put( "User", "ubdb" );
-            props.put( "Password", "123456" );
-            Connection connection = DriverManager.getConnection("jdbc:sybase:Tds:10.171.1.252:2638/ubdatabase", props);
-            String queryString = "SELECT * FROM logins";
-            PreparedStatement pstatement = connection.prepareStatement(queryString);
-            ResultSet rs = pstatement.executeQuery();
-           
-            int numResults = 0;
-            while(rs.next()) {
-               numResults += 1;
-               //System.out.println("" +  rs.getInt("timestamp")+", "+rs.getInt("percent")+", "+ rs.getInt("absolute"));
-            }
-            
-            rs.close();
-            pstatement.close();
-            connection.cl{ose();
-            //resultMsg="The amenities have been found!";
-		}
 		
-		catch (Exception e) {
-            System.out.println("Connection failure");
-            e.printStackTrace(System.out);
-            //resultMsg="Error occurred while reading database.";
-         }
-		*/
       
 	}
 
