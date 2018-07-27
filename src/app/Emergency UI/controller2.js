@@ -1,32 +1,39 @@
-function control(){
-    var counter = 0;
-    var counter2 = 0;
-    $(document).ready(function() {
-            $.ajax({
-                url: "http://localhost:8080/event"
-            }).then(function(data) {
-                console.log(data.event);
-                if (data.event == 4 && counter == 0 && counter2 == 0){
-                    document.getElementById('data').innerHTML = "Betty got picked up";
-                    counter++;
-                }
-                else if (data.event == 5 && counter == 1 && counter2 == 0){
-                    document.getElementById('data').innerHTML = "All passengers have been picked up";
-                    counter2++;
-                }
-                else if(data.event == 4 && counter == 1 && counter2 == 1){
-                    document.getElementById('data').innerHTML = "Entering Deadzone";
-                    counter++;
-                }
-                else if(data.event == 5 && counter == 2 && counter2 == 1){
-                    document.getElementById('data').innerHTML = "Exiting Deadzone";
-                    counter2++;
-                }
-                else if(data.event== 5 && counter == 2 && counter2 == 2){
-                    document.getElementById('data').innerHTML = "Betty got dropped off";
-                }
-            });
-    });
-    setTimeout(control, 3000);
+
+var alerts = {};
+
+alerts[0] = "Betty got picked up";
+alerts[1] = "All passengers have been picked up";
+alerts[2] = "Entering Deadzone";
+alerts[3] = "Exiting Deadzone";
+alerts[4] = "Betty got dropped off";
+
+
+var lastEvent = false;
+var counter = 0;
+
+function update(data)
+{
+	var isEvent = true;
+	if( data.eventCode < 4)
+	{
+		isEvent = false;
+	}
+	
+	if( isEvent != lastEvent)
+	{
+		lastEvent = isEvent;
+		if( isEvent )
+		{
+			document.getElementById('data').innerHTML = alerts[counter];
+			counter = counter + 1;
+		}
+	}
 }
-control();
+
+function poll()
+{
+	$.post("http://localhost:8080/event", update);
+	setTimeout(poll, 500);
+}
+
+%(document).ready(poll);
